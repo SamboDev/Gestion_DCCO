@@ -34,6 +34,9 @@
                     <ul class="navbar-nav mr-auto">
 						<!--Nav Bar Hooks - Do not delete!!-->
 						<li class="nav-item">
+                            <a href="{{ url('/semestres') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Semestres</a> 
+                        </li>
+						<li class="nav-item">
                             <a href="{{ url('/carreras') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Carreras</a> 
                         </li>
                     </ul>
