@@ -34,10 +34,34 @@
                     <ul class="navbar-nav mr-auto">
 						<!--Nav Bar Hooks - Do not delete!!-->
 						<li class="nav-item">
+                            <a href="{{ url('/cursos') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Cursos</a> 
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/docentes_materias') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Docentes_materias</a> 
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/materias') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Materias</a> 
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/docentes') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Docentes</a> 
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/areas_conocimientos') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Areas_conocimientos</a> 
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/areas_conocimientos') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Areas de conocimientos</a> 
+                        </li>
+						<li class="nav-item">
                             <a href="{{ url('/semestres') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Semestres</a> 
                         </li>
 						<li class="nav-item">
                             <a href="{{ url('/carreras') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Carreras</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/curriculums') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Curriculums</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/privilegios') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Privilegio</a> 
                         </li>
                     </ul>
 					@endauth()
