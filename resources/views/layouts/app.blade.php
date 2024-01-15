@@ -61,6 +61,12 @@
                             <a href="{{ url('/curriculums') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Curriculums</a> 
                         </li>
                         <li class="nav-item">
+                            <a href="{{ url('/privilegios') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Privilegios</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/curriculums') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Curriculums</a> 
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ url('/privilegios') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Privilegio</a> 
                         </li>
                     </ul>
