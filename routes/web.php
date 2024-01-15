@@ -26,5 +26,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Route Hooks - Do not delete//
+	Route::view('cursos', 'livewire.cursos.index')->middleware('auth');
+	Route::view('docentes_materias', 'livewire.docentes_materias.index')->middleware('auth');
+	Route::view('materias', 'livewire.materias.index')->middleware('auth');
+	Route::view('docentes', 'livewire.docentes.index')->middleware('auth');
+	Route::view('areas_conocimientos', 'livewire.areas_conocimientos.index')->middleware('auth');
 	Route::view('semestres', 'livewire.semestres.index')->middleware('auth');
 	Route::view('carreras', 'livewire.carreras.index')->middleware('auth');
+	Route::view('curriculums', 'livewire.curriculums.index')->middleware('auth');
+	Route::view('privilegios', 'livewire.privilegios.index')->middleware('auth');
