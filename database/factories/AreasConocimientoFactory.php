@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\AreasConocimiento;
+use App\Models\Areasconocimiento;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class AreasConocimientoFactory extends Factory
+class AreasconocimientoFactory extends Factory
 {
-    protected $model = AreasConocimiento::class;
+    protected $model = Areasconocimiento::class;
 
     public function definition()
     {

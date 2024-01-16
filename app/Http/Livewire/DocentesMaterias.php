@@ -2,11 +2,13 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Docente;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\DocentesMateria;
+use App\Models\Docentesmateria;
+use App\Models\Materia;
 
-class DocentesMaterias extends Component
+class Docentesmaterias extends Component
 {
     use WithPagination;
 
@@ -16,11 +18,13 @@ class DocentesMaterias extends Component
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
-        return view('livewire.docentesMaterias.view', [
-            'docentesMaterias' => DocentesMateria::latest()
+        return view('livewire.docentesmaterias.view', [
+            'docentesmaterias' => Docentesmateria::latest()
 						->orWhere('id_doc', 'LIKE', $keyWord)
 						->orWhere('id_mat', 'LIKE', $keyWord)
 						->paginate(10),
+                        'docentes' => Docente::all(),
+                        'materias' => Materia::all(),
         ]);
     }
 	
@@ -42,19 +46,19 @@ class DocentesMaterias extends Component
 		'id_mat' => 'required',
         ]);
 
-        DocentesMateria::create([ 
+        Docentesmateria::create([ 
 			'id_doc' => $this-> id_doc,
 			'id_mat' => $this-> id_mat
         ]);
         
         $this->resetInput();
 		$this->dispatchBrowserEvent('closeModal');
-		session()->flash('message', 'DocentesMateria Successfully created.');
+		session()->flash('message', 'Docentesmateria Successfully created.');
     }
 
     public function edit($id)
     {
-        $record = DocentesMateria::findOrFail($id);
+        $record = Docentesmateria::findOrFail($id);
         $this->selected_id = $id; 
 		$this->id_doc = $record-> id_doc;
 		$this->id_mat = $record-> id_mat;
@@ -68,7 +72,7 @@ class DocentesMaterias extends Component
         ]);
 
         if ($this->selected_id) {
-			$record = DocentesMateria::find($this->selected_id);
+			$record = Docentesmateria::find($this->selected_id);
             $record->update([ 
 			'id_doc' => $this-> id_doc,
 			'id_mat' => $this-> id_mat
@@ -76,14 +80,14 @@ class DocentesMaterias extends Component
 
             $this->resetInput();
             $this->dispatchBrowserEvent('closeModal');
-			session()->flash('message', 'DocentesMateria Successfully updated.');
+			session()->flash('message', 'Docentesmateria Successfully updated.');
         }
     }
 
     public function destroy($id)
     {
         if ($id) {
-            DocentesMateria::where('id', $id)->delete();
+            Docentesmateria::where('id', $id)->delete();
         }
     }
 }

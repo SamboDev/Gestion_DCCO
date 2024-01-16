@@ -4,9 +4,9 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\AreasConocimiento;
+use App\Models\Areasconocimiento;
 
-class AreasConocimientos extends Component
+class Areasconocimientos extends Component
 {
     use WithPagination;
 
@@ -16,8 +16,8 @@ class AreasConocimientos extends Component
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
-        return view('livewire.areasConocimientos.view', [
-            'areasConocimientos' => AreasConocimiento::latest()
+        return view('livewire.areasconocimientos.view', [
+            'areasconocimientos' => Areasconocimiento::latest()
 						->orWhere('nombre_are', 'LIKE', $keyWord)
 						->paginate(10),
         ]);
@@ -39,18 +39,18 @@ class AreasConocimientos extends Component
 		'nombre_are' => 'required',
         ]);
 
-        AreasConocimiento::create([ 
+        Areasconocimiento::create([ 
 			'nombre_are' => $this-> nombre_are
         ]);
         
         $this->resetInput();
 		$this->dispatchBrowserEvent('closeModal');
-		session()->flash('message', 'AreasConocimiento Successfully created.');
+		session()->flash('message', 'Areasconocimiento Successfully created.');
     }
 
     public function edit($id)
     {
-        $record = AreasConocimiento::findOrFail($id);
+        $record = Areasconocimiento::findOrFail($id);
         $this->selected_id = $id; 
 		$this->nombre_are = $record-> nombre_are;
     }
@@ -62,21 +62,21 @@ class AreasConocimientos extends Component
         ]);
 
         if ($this->selected_id) {
-			$record = AreasConocimiento::find($this->selected_id);
+			$record = Areasconocimiento::find($this->selected_id);
             $record->update([ 
 			'nombre_are' => $this-> nombre_are
             ]);
 
             $this->resetInput();
             $this->dispatchBrowserEvent('closeModal');
-			session()->flash('message', 'AreasConocimiento Successfully updated.');
+			session()->flash('message', 'Areasconocimiento Successfully updated.');
         }
     }
 
     public function destroy($id)
     {
         if ($id) {
-            AreasConocimiento::where('id', $id)->delete();
+            Areasconocimiento::where('id', $id)->delete();
         }
     }
 }

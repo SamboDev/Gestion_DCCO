@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('horas_total');
             $table->text('descripcion_mat');
             $table->timestamps();
-            $table->foreign('id_are')->references('id')->on('areas_conocimientos');
+            $table->foreign('id_are')->references('id')->on('areasConocimientos');
         });
     }
 

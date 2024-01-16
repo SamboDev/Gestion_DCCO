@@ -18,9 +18,9 @@ class Materia extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function areasConocimiento()
+    public function areasconocimiento()
     {
-        return $this->hasOne('App\Models\AreasConocimiento', 'id', 'id_are');
+        return $this->hasOne('App\Models\Areasconocimiento', 'id', 'id_are');
     }
     
     /**
@@ -34,9 +34,9 @@ class Materia extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function docentesMaterias()
+    public function docentesmaterias()
     {
-        return $this->hasMany('App\Models\DocentesMateria', 'id_mat', 'id');
+        return $this->hasMany('App\Models\Docentesmateria', 'id_mat', 'id');
     }
     
 }

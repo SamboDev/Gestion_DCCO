@@ -2,9 +2,13 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Carrera;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Curso;
+use App\Models\Docentesmateria;
+use App\Models\Materia;
+use App\Models\Semestre;
 
 class Cursos extends Component
 {
@@ -23,6 +27,10 @@ class Cursos extends Component
 						->orWhere('id_car', 'LIKE', $keyWord)
 						->orWhere('id_dm', 'LIKE', $keyWord)
 						->paginate(10),
+                        'materias' => Materia::all(),
+                        'semestres' => Semestre::all(),
+                        'carreras' => Carrera::all(),
+                        'docentesMaterias' => Docentesmateria::all(),
         ]);
     }
 	

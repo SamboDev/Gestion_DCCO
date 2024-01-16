@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\DocentesMateria;
+use App\Models\Docentesmateria;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class DocentesMateriaFactory extends Factory
+class DocentesmateriaFactory extends Factory
 {
-    protected $model = DocentesMateria::class;
+    protected $model = Docentesmateria::class;
 
     public function definition()
     {

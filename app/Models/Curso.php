@@ -26,9 +26,9 @@ class Curso extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function docentesMateria()
+    public function docentesmateria()
     {
-        return $this->hasOne('App\Models\DocentesMateria', 'id', 'id_dm');
+        return $this->hasOne('App\Models\Docentesmateria', 'id', 'id_dm');
     }
     
     /**

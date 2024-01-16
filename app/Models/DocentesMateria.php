@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DocentesMateria extends Model
+class Docentesmateria extends Model
 {
 	use HasFactory;
 	
     public $timestamps = true;
 
-    protected $table = 'docentesMaterias';
+    protected $table = 'docentesmaterias';
 
     protected $fillable = ['id_doc','id_mat'];
 	

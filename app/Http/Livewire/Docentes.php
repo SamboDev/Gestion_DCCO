@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Curriculum;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Docente;
+use App\Models\Docentesmateria;
 
 class Docentes extends Component
 {
@@ -27,6 +29,7 @@ class Docentes extends Component
 						->orWhere('correo_doc', 'LIKE', $keyWord)
 						->orWhere('telefono_doc', 'LIKE', $keyWord)
 						->paginate(10),
+						'curriculums' => Curriculum::all(),
         ]);
     }
 	

@@ -15,4 +15,12 @@ class Privilegio extends Model
 
     protected $fillable = ['nombre_priv'];
 	
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function users()
+    {
+        return $this->hasMany('App\Models\User', 'id_priv', 'id');
+    }
+    
 }

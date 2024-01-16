@@ -3,13 +3,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="createDataModalLabel">Create New Areas Conocimiento</h5>
+                <h5 class="modal-title" id="createDataModalLabel">Create New Areasconocimiento</h5>
                 <button wire:click.prevent="cancel()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
            <div class="modal-body">
 				<form>
                     <div class="form-group">
-                        <label for="nombre_are"></label>
+                        <label for="nombre_are">Nombre</label>
                         <input wire:model="nombre_are" type="text" class="form-control" id="nombre_are" placeholder="Nombre Are">@error('nombre_are') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
 
@@ -28,14 +28,14 @@
     <div class="modal-dialog" role="document">
        <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="updateModalLabel">Update Areas Conocimiento</h5>
+                <h5 class="modal-title" id="updateModalLabel">Update Areasconocimiento</h5>
                 <button wire:click.prevent="cancel()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form>
 					<input type="hidden" wire:model="selected_id">
                     <div class="form-group">
-                        <label for="nombre_are"></label>
+                        <label for="nombre_are">Nombre</label>
                         <input wire:model="nombre_are" type="text" class="form-control" id="nombre_are" placeholder="Nombre Are">@error('nombre_are') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
 

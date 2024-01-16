@@ -28,14 +28,14 @@ class Curriculums extends Component
 						->paginate(10),
         ]);
     }
-
+	
     public function cancel()
     {
         $this->resetInput();
     }
-
+	
     private function resetInput()
-    {
+    {		
 		$this->institucion_cur = null;
 		$this->fecha_gra_cur = null;
 		$this->titulo_cur = null;
@@ -57,7 +57,7 @@ class Curriculums extends Component
 		'otras_responsabilidades_cur' => 'required',
         ]);
 
-        Curriculum::create([
+        Curriculum::create([ 
 			'institucion_cur' => $this-> institucion_cur,
 			'fecha_gra_cur' => $this-> fecha_gra_cur,
 			'titulo_cur' => $this-> titulo_cur,
@@ -66,7 +66,7 @@ class Curriculums extends Component
 			'cursos_cur' => $this-> cursos_cur,
 			'otras_responsabilidades_cur' => $this-> otras_responsabilidades_cur
         ]);
-
+        
         $this->resetInput();
 		$this->dispatchBrowserEvent('closeModal');
 		session()->flash('message', 'Curriculum Successfully created.');
@@ -75,7 +75,7 @@ class Curriculums extends Component
     public function edit($id)
     {
         $record = Curriculum::findOrFail($id);
-        $this->selected_id = $id;
+        $this->selected_id = $id; 
 		$this->institucion_cur = $record-> institucion_cur;
 		$this->fecha_gra_cur = $record-> fecha_gra_cur;
 		$this->titulo_cur = $record-> titulo_cur;
@@ -99,7 +99,7 @@ class Curriculums extends Component
 
         if ($this->selected_id) {
 			$record = Curriculum::find($this->selected_id);
-            $record->update([
+            $record->update([ 
 			'institucion_cur' => $this-> institucion_cur,
 			'fecha_gra_cur' => $this-> fecha_gra_cur,
 			'titulo_cur' => $this-> titulo_cur,

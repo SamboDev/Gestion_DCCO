@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('privilegios', function (Blueprint $table) {
+        Schema::create('areasConocimientos', function (Blueprint $table) {
             $table->id();
-            $table->char('nombre_priv', 50);
+            $table->char('nombre_are', 75);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('privilegios');
+        Schema::dropIfExists('areas_conocimientos');
     }
 };

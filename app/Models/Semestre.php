@@ -15,4 +15,12 @@ class Semestre extends Model
 
     protected $fillable = ['nombre_sem'];
 	
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function cursos()
+    {
+        return $this->hasMany('App\Models\Curso', 'id_sem', 'id');
+    }
+    
 }

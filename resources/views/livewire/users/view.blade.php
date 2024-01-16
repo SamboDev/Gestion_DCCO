@@ -1,4 +1,4 @@
-@section('title', __('Carreras'))
+@section('title', __('Users'))
 <div class="container-fluid">
 	<div class="row justify-content-center">
 		<div class="col-md-12">
@@ -7,36 +7,40 @@
 					<div style="display: flex; justify-content: space-between; align-items: center;">
 						<div class="float-left">
 							<h4><i class="fab fa-laravel text-info"></i>
-							Carrera Listing </h4>
+							User Listing </h4>
 						</div>
 						@if (session()->has('message'))
 						<div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;"> {{ session('message') }} </div>
 						@endif
 						<div>
-							<input wire:model='keyWord' type="text" class="form-control" name="search" id="search" placeholder="Search Carreras">
+							<input wire:model='keyWord' type="text" class="form-control" name="search" id="search" placeholder="Search Users">
 						</div>
 						<div class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#createDataModal">
-						<i class="fa fa-plus"></i>  Add Carreras
+						<i class="fa fa-plus"></i>  Add Users
 						</div>
 					</div>
 				</div>
 				
 				<div class="card-body">
-						@include('livewire.carreras.modals')
+						@include('livewire.users.modals')
 				<div class="table-responsive">
 					<table class="table table-bordered table-sm">
 						<thead class="thead">
 							<tr> 
 								<td>#</td> 
-								<th>Nombre Car</th>
+								<th>Id Priv</th>
+								<th>Name</th>
+								<th>Email</th>
 								<td>ACTIONS</td>
 							</tr>
 						</thead>
 						<tbody>
-							@forelse($carreras as $row)
+							@forelse($users as $row)
 							<tr>
 								<td>{{ $loop->iteration }}</td> 
-								<td>{{ $row->nombre_car }}</td>
+								<td>{{ $row->id_priv }}</td>
+								<td>{{ $row->name }}</td>
+								<td>{{ $row->email }}</td>
 								<td width="90">
 									<div class="dropdown">
 										<a class="btn btn-sm btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,7 +48,7 @@
 										</a>
 										<ul class="dropdown-menu">
 											<li><a data-bs-toggle="modal" data-bs-target="#updateDataModal" class="dropdown-item" wire:click="edit({{$row->id}})"><i class="fa fa-edit"></i> Edit </a></li>
-											<li><a class="dropdown-item" onclick="confirm('Confirm Delete Carrera id {{$row->id}}? \nDeleted Carreras cannot be recovered!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"><i class="fa fa-trash"></i> Delete </a></li>  
+											<li><a class="dropdown-item" onclick="confirm('Confirm Delete User id {{$row->id}}? \nDeleted Users cannot be recovered!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"><i class="fa fa-trash"></i> Delete </a></li>  
 										</ul>
 									</div>								
 								</td>
@@ -56,7 +60,7 @@
 							@endforelse
 						</tbody>
 					</table>						
-					<div class="float-end">{{ $carreras->links() }}</div>
+					<div class="float-end">{{ $users->links() }}</div>
 					</div>
 				</div>
 			</div>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Areasconocimiento;
+use App\Models\Docentesmateria;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Materia;
@@ -28,6 +30,7 @@ class Materias extends Component
 						->orWhere('horas_total', 'LIKE', $keyWord)
 						->orWhere('descripcion_mat', 'LIKE', $keyWord)
 						->paginate(10),
+						'areasConocimientos' => Areasconocimiento::all(),
         ]);
     }
 	

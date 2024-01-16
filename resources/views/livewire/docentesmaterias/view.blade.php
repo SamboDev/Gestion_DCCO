@@ -1,4 +1,4 @@
-@section('title', __('Areas Conocimientos'))
+@section('title', __('Docentesmaterias'))
 <div class="container-fluid">
 	<div class="row justify-content-center">
 		<div class="col-md-12">
@@ -7,36 +7,38 @@
 					<div style="display: flex; justify-content: space-between; align-items: center;">
 						<div class="float-left">
 							<h4><i class="fab fa-laravel text-info"></i>
-							Areas Conocimiento Listing </h4>
+							Docentesmateria Listing </h4>
 						</div>
 						@if (session()->has('message'))
 						<div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;"> {{ session('message') }} </div>
 						@endif
 						<div>
-							<input wire:model='keyWord' type="text" class="form-control" name="search" id="search" placeholder="Search Areas Conocimientos">
+							<input wire:model='keyWord' type="text" class="form-control" name="search" id="search" placeholder="Search Docentesmaterias">
 						</div>
 						<div class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#createDataModal">
-						<i class="fa fa-plus"></i>  Add Areas Conocimientos
+						<i class="fa fa-plus"></i>  Add Docentesmaterias
 						</div>
 					</div>
 				</div>
 				
 				<div class="card-body">
-						@include('livewire.areasConocimientos.modals')
+						@include('livewire.docentesmaterias.modals')
 				<div class="table-responsive">
 					<table class="table table-bordered table-sm">
 						<thead class="thead">
 							<tr> 
 								<td>#</td> 
-								<th>Nombre Are</th>
+								<th>Id Doc</th>
+								<th>Id Mat</th>
 								<td>ACTIONS</td>
 							</tr>
 						</thead>
 						<tbody>
-							@forelse($areasConocimientos as $row)
+							@forelse($docentesmaterias as $row)
 							<tr>
 								<td>{{ $loop->iteration }}</td> 
-								<td>{{ $row->nombre_are }}</td>
+								<td>{{ $row->id_doc }}</td>
+								<td>{{ $row->id_mat }}</td>
 								<td width="90">
 									<div class="dropdown">
 										<a class="btn btn-sm btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,7 +46,7 @@
 										</a>
 										<ul class="dropdown-menu">
 											<li><a data-bs-toggle="modal" data-bs-target="#updateDataModal" class="dropdown-item" wire:click="edit({{$row->id}})"><i class="fa fa-edit"></i> Edit </a></li>
-											<li><a class="dropdown-item" onclick="confirm('Confirm Delete Areas Conocimiento id {{$row->id}}? \nDeleted Areas Conocimientos cannot be recovered!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"><i class="fa fa-trash"></i> Delete </a></li>  
+											<li><a class="dropdown-item" onclick="confirm('Confirm Delete Docentesmateria id {{$row->id}}? \nDeleted Docentesmaterias cannot be recovered!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"><i class="fa fa-trash"></i> Delete </a></li>  
 										</ul>
 									</div>								
 								</td>
@@ -56,7 +58,7 @@
 							@endforelse
 						</tbody>
 					</table>						
-					<div class="float-end">{{ $areasConocimientos->links() }}</div>
+					<div class="float-end">{{ $docentesmaterias->links() }}</div>
 					</div>
 				</div>
 			</div>

@@ -26,9 +26,9 @@ class Docente extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function docentesMaterias()
+    public function docentesmaterias()
     {
-        return $this->hasMany('App\Models\DocentesMateria', 'id_doc', 'id');
+        return $this->hasMany('App\Models\Docentesmateria', 'id_doc', 'id');
     }
     
 }
