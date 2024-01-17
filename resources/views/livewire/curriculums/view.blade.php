@@ -20,14 +20,14 @@
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="card-body">
 						@include('livewire.curriculums.modals')
 				<div class="table-responsive">
 					<table class="table table-bordered table-sm">
 						<thead class="thead">
-							<tr>
-								<td>#</td>
+							<tr> 
+								<td>#</td> 
 								<th>Institucion Cur</th>
 								<th>Fecha Gra Cur</th>
 								<th>Titulo Cur</th>
@@ -41,7 +41,7 @@
 						<tbody>
 							@forelse($curriculums as $row)
 							<tr>
-								<td>{{ $loop->iteration }}</td>
+								<td>{{ $loop->iteration }}</td> 
 								<td>{{ $row->institucion_cur }}</td>
 								<td>{{ $row->fecha_gra_cur }}</td>
 								<td>{{ $row->titulo_cur }}</td>
@@ -56,9 +56,9 @@
 										</a>
 										<ul class="dropdown-menu">
 											<li><a data-bs-toggle="modal" data-bs-target="#updateDataModal" class="dropdown-item" wire:click="edit({{$row->id}})"><i class="fa fa-edit"></i> Edit </a></li>
-											<li><a class="dropdown-item" onclick="confirm('Confirm Delete Curriculum id {{$row->id}}? \nDeleted Curriculums cannot be recovered!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"><i class="fa fa-trash"></i> Delete </a></li>
+											<li><a class="dropdown-item" onclick="confirm('Confirm Delete Curriculum id {{$row->id}}? \nDeleted Curriculums cannot be recovered!')||event.stopImmediatePropagation()" wire:click="destroy({{$row->id}})"><i class="fa fa-trash"></i> Delete </a></li>  
 										</ul>
-									</div>
+									</div>								
 								</td>
 							</tr>
 							@empty
@@ -67,7 +67,7 @@
 							</tr>
 							@endforelse
 						</tbody>
-					</table>
+					</table>						
 					<div class="float-end">{{ $curriculums->links() }}</div>
 					</div>
 				</div>

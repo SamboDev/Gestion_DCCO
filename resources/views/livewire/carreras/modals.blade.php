@@ -9,7 +9,7 @@
            <div class="modal-body">
 				<form>
                     <div class="form-group">
-                        <label for="nombre_car"></label>
+                        <label for="nombre_car">Carrera</label>
                         <input wire:model="nombre_car" type="text" class="form-control" id="nombre_car" placeholder="Nombre Car">@error('nombre_car') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
 
@@ -35,7 +35,7 @@
                 <form>
 					<input type="hidden" wire:model="selected_id">
                     <div class="form-group">
-                        <label for="nombre_car"></label>
+                        <label for="nombre_car">Carrera</label>
                         <input wire:model="nombre_car" type="text" class="form-control" id="nombre_car" placeholder="Nombre Car">@error('nombre_car') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
 

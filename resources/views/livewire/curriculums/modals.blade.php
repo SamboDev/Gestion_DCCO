@@ -9,31 +9,31 @@
            <div class="modal-body">
 				<form>
                     <div class="form-group">
-                        <label for="institucion_cur"></label>
+                        <label for="institucion_cur">Institución</label>
                         <input wire:model="institucion_cur" type="text" class="form-control" id="institucion_cur" placeholder="Institucion Cur">@error('institucion_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="fecha_gra_cur"></label>
-                        <input wire:model="fecha_gra_cur" type="text" class="form-control" id="fecha_gra_cur" placeholder="Fecha Gra Cur">@error('fecha_gra_cur') <span class="error text-danger">{{ $message }}</span> @enderror
+                        <label for="fecha_gra_cur">Fecha de Graduación</label>
+                        <input wire:model="fecha_gra_cur" type="text" class="form-control" id="fecha_gra_cur" placeholder="yyyy-mm-dd">@error('fecha_gra_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="titulo_cur"></label>
+                        <label for="titulo_cur">Titulo/s</label>
                         <input wire:model="titulo_cur" type="text" class="form-control" id="titulo_cur" placeholder="Titulo Cur">@error('titulo_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="interes_inv_cur"></label>
-                        <input wire:model="interes_inv_cur" type="text" class="form-control" id="interes_inv_cur" placeholder="Interes Inv Cur">@error('interes_inv_cur') <span class="error text-danger">{{ $message }}</span> @enderror
+                        <label for="interes_inv_cur">Investigaciones realizadas</label>
+                        <input wire:model="interes_inv_cur" type="text" class="form-control" id="interes_inv_cur" placeholder="Interes de investigación">@error('interes_inv_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="premios_cur"></label>
-                        <input wire:model="premios_cur" type="text" class="form-control" id="premios_cur" placeholder="Premios Cur">@error('premios_cur') <span class="error text-danger">{{ $message }}</span> @enderror
+                        <label for="premios_cur">Premio otorgados</label>
+                        <input wire:model="premios_cur" type="text" class="form-control" id="premios_cur" placeholder="Premios otorgados">@error('premios_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="cursos_cur"></label>
-                        <input wire:model="cursos_cur" type="text" class="form-control" id="cursos_cur" placeholder="Cursos Cur">@error('cursos_cur') <span class="error text-danger">{{ $message }}</span> @enderror
+                        <label for="cursos_cur">Cursos hechos</label>
+                        <input wire:model="cursos_cur" type="text" class="form-control" id="cursos_cur" placeholder="Cursos hechos">@error('cursos_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="otras_responsabilidades_cur"></label>
+                        <label for="otras_responsabilidades_cur">Otras responsabilidades (Experiencia)</label>
                         <input wire:model="otras_responsabilidades_cur" type="text" class="form-control" id="otras_responsabilidades_cur" placeholder="Otras Responsabilidades Cur">@error('otras_responsabilidades_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
 
@@ -59,34 +59,33 @@
                 <form>
 					<input type="hidden" wire:model="selected_id">
                     <div class="form-group">
-                        <label for="institucion_cur"></label>
+                        <label for="institucion_cur">Institución</label>
                         <input wire:model="institucion_cur" type="text" class="form-control" id="institucion_cur" placeholder="Institucion Cur">@error('institucion_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="fecha_gra_cur"></label>
-                        <input wire:model="fecha_gra_cur" type="text" class="form-control" id="fecha_gra_cur" placeholder="Fecha Gra Cur">@error('fecha_gra_cur') <span class="error text-danger">{{ $message }}</span> @enderror
+                        <label for="fecha_gra_cur">Fecha de Graduación</label>
+                        <input wire:model="fecha_gra_cur" type="text" class="form-control" id="fecha_gra_cur" placeholder="yyyy-mm-dd">@error('fecha_gra_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="titulo_cur"></label>
+                        <label for="titulo_cur">Titulo/s</label>
                         <input wire:model="titulo_cur" type="text" class="form-control" id="titulo_cur" placeholder="Titulo Cur">@error('titulo_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="interes_inv_cur"></label>
-                        <input wire:model="interes_inv_cur" type="text" class="form-control" id="interes_inv_cur" placeholder="Interes Inv Cur">@error('interes_inv_cur') <span class="error text-danger">{{ $message }}</span> @enderror
+                        <label for="interes_inv_cur">Investigaciones realizadas</label>
+                        <input wire:model="interes_inv_cur" type="text" class="form-control" id="interes_inv_cur" placeholder="Interes de investigación">@error('interes_inv_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="premios_cur"></label>
-                        <input wire:model="premios_cur" type="text" class="form-control" id="premios_cur" placeholder="Premios Cur">@error('premios_cur') <span class="error text-danger">{{ $message }}</span> @enderror
+                        <label for="premios_cur">Premio otorgados</label>
+                        <input wire:model="premios_cur" type="text" class="form-control" id="premios_cur" placeholder="Premios otorgados">@error('premios_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="cursos_cur"></label>
-                        <input wire:model="cursos_cur" type="text" class="form-control" id="cursos_cur" placeholder="Cursos Cur">@error('cursos_cur') <span class="error text-danger">{{ $message }}</span> @enderror
+                        <label for="cursos_cur">Cursos hechos</label>
+                        <input wire:model="cursos_cur" type="text" class="form-control" id="cursos_cur" placeholder="Cursos hechos">@error('cursos_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <label for="otras_responsabilidades_cur"></label>
+                        <label for="otras_responsabilidades_cur">Otras responsabilidades (Experiencia)</label>
                         <input wire:model="otras_responsabilidades_cur" type="text" class="form-control" id="otras_responsabilidades_cur" placeholder="Otras Responsabilidades Cur">@error('otras_responsabilidades_cur') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
-
                 </form>
             </div>
             <div class="modal-footer">

@@ -302,7 +302,7 @@ return [
         ],
 
         // Sidebar items:
-        [
+        /*[
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
@@ -310,64 +310,96 @@ return [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
-        ],
-        [
+        ],*/
+        /*[
             'text'        => 'pages',
-            'url'         => 'admin/pages',
+            'url'         => 'carreras',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Profile',
+            'url'  => 'user/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
-        ],
+        ],*/
+        ['header'=> 'Acciones'],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Administrador',
+            'icon'    => 'fa fa-university',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
+                    'text' => 'Usuarios',
+                    'icon' => 'fa fa-folder-open',
                     'submenu' => [
                         [
-                            'text' => 'level_two',
-                            'url'  => '#',
+                            'text' => 'Usuarios',
+                            'icon' => '',
+                            'url'  => 'users',
                         ],
                         [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
+                            'text' => 'Privilegios',
+                            'icon' => '',
+                            'url'  => 'privilegios',
                         ],
                     ],
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Carreras',
+                    'icon' => 'fa fa-cogs',
+                    'url'  => 'carreras',
+                ],
+                [
+                    'text' => 'Semestres',
+                    'icon' => 'fa fa-bolt',
+                    'url'  => 'semestres',
+                ],
+                [
+                    'text' => 'Docentes',
+                    'icon' => 'fa fa-folder-open',
+                    'submenu' => [
+                        [
+                            'text' => 'Perfil',
+                            'icon' => '',
+                            'url'  => 'docentes',
+                        ],
+                        [
+                            'text' => 'Curriculum',
+                            'icon' => '',
+                            'url'  => 'curriculums',
+                        ],
+                    ],
+                ],
+                [
+                    'text' => 'Materias',
+                    'icon' => 'fa fa-book',
+                    'url'  => 'materias',
+                ],
+                [
+                    'text' => 'Docentes por Materia',
+                    'icon' => 'fa fa-graduation-cap',
+                    'url'  => 'docentesmaterias',
+                ],
+                [
+                    'text' => 'Cursos',
+                    'icon' => 'fa fa-users',
+                    'url'  => 'cursos',
+                ],
+                [
+                    'text' => 'Areas de Conocimientos',
+                    'icon' => 'fa fa-users',
+                    'url'  => 'areasconocimientos',
                 ],
             ],
         ],
-        ['header' => 'labels'],
+        
+        /*['header' => 'labels'],
         [
             'text'       => 'important',
             'icon_color' => 'red',
@@ -382,7 +414,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ],*/
     ],
 
     /*

@@ -9,7 +9,7 @@
            <div class="modal-body">
 				<form>
                     <div class="form-group">
-                        <label for="nombre_sem"></label>
+                        <label for="nombre_sem">Semestre</label>
                         <input wire:model="nombre_sem" type="text" class="form-control" id="nombre_sem" placeholder="Nombre Sem">@error('nombre_sem') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
 
@@ -35,7 +35,7 @@
                 <form>
 					<input type="hidden" wire:model="selected_id">
                     <div class="form-group">
-                        <label for="nombre_sem"></label>
+                        <label for="nombre_sem">Semestre</label>
                         <input wire:model="nombre_sem" type="text" class="form-control" id="nombre_sem" placeholder="Nombre Sem">@error('nombre_sem') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
 

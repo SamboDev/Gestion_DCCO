@@ -1,4 +1,3 @@
-@extends('adminlte::page')
 @section('title', __('Carreras'))
 <div class="container-fluid">
 	<div class="row justify-content-center">

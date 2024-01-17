@@ -15,4 +15,12 @@ class Carrera extends Model
 
     protected $fillable = ['nombre_car'];
 	
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function cursos()
+    {
+        return $this->hasMany('App\Models\Curso', 'id_car', 'id');
+    }
+    
 }
