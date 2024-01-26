@@ -51,8 +51,10 @@ class DocenteResource extends Resource
                     ->required()
                     ->maxLength(10)
                     ->label('Teléfono'),
-                Forms\Components\TextInput::make('curriculum_url')
-                    ->maxLength(255)
+                Forms\Components\FileUpload::make('curriculum_url')
+                    ->disk('local')
+                    ->directory('form-attachments')
+                    ->visibility('private')
                     ->label('Curriculum'),
             ]);
     }
