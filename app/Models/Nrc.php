@@ -11,18 +11,18 @@ class Nrc extends Model
     use HasFactory;
     protected $guarded = [];
     public function semestre() : BelongsTo{
-        return $this->belongsTo(Semestre::class);
+        return $this->belongsTo(Semestre::class, 'id_sem');
     }
 
     public function materia() : BelongsTo{
-        return $this->belongsTo(Materia::class);
+        return $this->belongsTo(Materia::class, 'id_mat');
     }
 
     public function carrera() : BelongsTo{
-        return $this->belongsTo(Carrera::class);
+        return $this->belongsTo(Carrera::class, 'id_car');
     }
 
     public function docente_materia() : BelongsTo{
-        return $this->belongsTo(DocenteMateria::class);
+        return $this->belongsTo(DocenteMateria::class, 'id_dm');
     }
 }

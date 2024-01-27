@@ -27,7 +27,9 @@ class DocenteMateriaResource extends Resource
             ->schema([
                 Forms\Components\Select::make('id_doc')
                     ->required()
-                    ->options(Docente::all()->pluck('nombre_doc', 'id')->pluck('apellido_doc','id'))
+                    ->options(Docente::all()->mapWithKeys(function ($docente) {
+                        return [$docente->id => $docente->nombre_doc . ' ' . $docente->apellido_doc];
+                    }))
                     ->searchable()
                     ->label('Docente'),
                 Forms\Components\Select::make('id_mat')
@@ -42,10 +44,16 @@ class DocenteMateriaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id_doc')
+                Tables\Columns\TextColumn::make('docente.nombre_doc')
+                    ->label('Doc. Nombre')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('id_mat')
+                    Tables\Columns\TextColumn::make('docente.apellido_doc')
+                    ->label('Doc. Apellido')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('materias.nombre_mat')
+                    ->label('Materia')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
