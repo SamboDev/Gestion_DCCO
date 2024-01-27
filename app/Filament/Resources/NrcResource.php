@@ -4,8 +4,10 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\NrcResource\Pages;
 use App\Filament\Resources\NrcResource\RelationManagers;
+use App\Filament\Resources\NrcResource\Widgets\NrcCarrera;
 use App\Models\Carrera;
 use App\Models\Docente;
+use App\Models\DocenteMateria;
 use App\Models\Materia;
 use App\Models\Nrc;
 use App\Models\Semestre;
@@ -29,7 +31,7 @@ class NrcResource extends Resource
             ->schema([
                 Forms\Components\Select::make('id_mat')
                     ->required()
-                    ->options(Materia::all()->pluck('nombre_doc', 'id'))
+                    ->options(Materia::all()->pluck('nombre_mat', 'id'))
                     ->searchable()
                     ->label('Materia'),
                 Forms\Components\Select::make('id_sem')
@@ -42,9 +44,11 @@ class NrcResource extends Resource
                     ->options(Carrera::all()->pluck('nombre_car', 'id'))
                     ->searchable()
                     ->label('Carrera'),
-                Forms\Components\TextInput::make('id_dm')
+                Forms\Components\Select::make('id_dm')
                     ->required()
-                    ->options(Docente::all()->pluck('id_dm', 'id'))
+                    ->options(DocenteMateria::all()->mapWithKeys(function ($docenteMateria) {
+                        return [$docenteMateria->id => $docenteMateria->docente->nombre_doc . ' ' . $docenteMateria->docente->apellido_doc];
+                    }))
                     ->searchable()
                     ->label('Docente'),
                 Forms\Components\TextInput::make('codigo_nrc')
@@ -106,6 +110,12 @@ class NrcResource extends Resource
         ];
     }
 
+    public static function getWidgets(): array
+    {
+        return [
+            //
+        ];
+    }
     public static function getPages(): array
     {
         return [

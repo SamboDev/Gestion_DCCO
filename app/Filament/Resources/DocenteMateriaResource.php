@@ -27,10 +27,10 @@ class DocenteMateriaResource extends Resource
             ->schema([
                 Forms\Components\Select::make('id_doc')
                     ->required()
-                    ->options(Docente::all()->pluck('nombre_doc', 'id')->pluck('apellido_doc','id'))
+                    ->options(Docente::all()->pluck('nombre_doc', 'id'))
                     ->searchable()
                     ->label('Docente'),
-                Forms\Components\Select::make('id_mat')
+                Forms\Components\Select::make('id_mat') 
                     ->required()
                     ->options(Materia::all()->pluck('nombre_mat', 'id'))
                     ->searchable()
