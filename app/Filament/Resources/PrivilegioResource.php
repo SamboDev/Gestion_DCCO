@@ -35,6 +35,7 @@ class PrivilegioResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nombre_priv')
+                    ->label('Privilegio')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

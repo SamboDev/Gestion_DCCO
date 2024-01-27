@@ -39,8 +39,10 @@ class CarreraResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nombre_car')
+                    ->label('Carrera')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('titulo_car')
+                    ->label('Titulo a obtener')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

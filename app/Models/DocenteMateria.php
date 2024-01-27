@@ -11,10 +11,10 @@ class DocenteMateria extends Model
     use HasFactory;
     protected $guarded = [];
     public function docente() : BelongsTo{
-        return $this->belongsTo(Docente::class);
+        return $this->belongsTo(Docente::class, 'id_doc');
     }
 
     public function materias() : BelongsTo{
-        return $this->belongsTo(Materia::class);
+        return $this->belongsTo(Materia::class, 'id_mat');
     }
 }

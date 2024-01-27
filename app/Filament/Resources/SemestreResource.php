@@ -41,11 +41,14 @@ class SemestreResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nombre_sem')
+                    ->label('Semestre')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('fecha_ini_sem')
+                    ->label('Fecha Inicio')
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('fecha_fin_sem')
+                    ->label('Fecha Fin')
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

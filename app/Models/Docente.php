@@ -21,4 +21,8 @@ class Docente extends Model
     public function coordinadores(): HasMany{
         return $this->hasMany(Coordinador::class);
     }
+
+    public function materias(){
+        return $this->belongsToMany(Materia::class, 'docente_materias', 'id_doc', 'id_mat');
+    }
 }

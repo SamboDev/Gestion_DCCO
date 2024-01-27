@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class NrcResource extends Resource
 {
+
     protected static ?string $model = Nrc::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -29,6 +30,18 @@ class NrcResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Select::make('id_car')
+                    ->required()
+                    ->options(Carrera::all()->pluck('nombre_car', 'id'))
+                    ->searchable()
+                    ->label('Carrera'),
+                Forms\Components\Select::make('id_dm')
+                    ->required()
+                    ->options(DocenteMateria::with('docente', 'materias')->get()->mapWithKeys(function ($item) {
+                        return [$item->id => $item->docente->nombre_doc . ' ' . $item->docente->apellido_doc  . ' - ' . $item->materias->nombre_mat];
+                    }))
+                    ->searchable()
+                    ->label('Docente - Materia'),
                 Forms\Components\Select::make('id_mat')
                     ->required()
                     ->options(Materia::all()->pluck('nombre_mat', 'id'))
@@ -39,18 +52,6 @@ class NrcResource extends Resource
                     ->options(Semestre::all()->pluck('nombre_sem', 'id'))
                     ->searchable()
                     ->label('Semestre'),
-                Forms\Components\Select::make('id_car')
-                    ->required()
-                    ->options(Carrera::all()->pluck('nombre_car', 'id'))
-                    ->searchable()
-                    ->label('Carrera'),
-                Forms\Components\Select::make('id_dm')
-                    ->required()
-                    ->options(DocenteMateria::all()->mapWithKeys(function ($docenteMateria) {
-                        return [$docenteMateria->id => $docenteMateria->docente->nombre_doc . ' ' . $docenteMateria->docente->apellido_doc];
-                    }))
-                    ->searchable()
-                    ->label('Docente'),
                 Forms\Components\TextInput::make('codigo_nrc')
                     ->required()
                     ->maxLength(10)
@@ -62,23 +63,33 @@ class NrcResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id_mat')
+                Tables\Columns\TextColumn::make('materia.nombre_mat')
+                    ->label('Materia')
                     ->numeric()
                     ->sortable()
                     ->label('Materia'),
-                Tables\Columns\TextColumn::make('id_sem')
+                Tables\Columns\TextColumn::make('semestre.nombre_sem')
+                    ->label('Semestre')
                     ->numeric()
                     ->sortable()
                     ->label('Semestre'),
-                Tables\Columns\TextColumn::make('id_car')
+                Tables\Columns\TextColumn::make('carrera.nombre_car')
+                    ->label('Carrera')
                     ->numeric()
                     ->sortable()
                     ->label('Carrera'),
-                Tables\Columns\TextColumn::make('id_dm')
+                Tables\Columns\TextColumn::make('docente_materia.docente.nombre_doc')
+                    ->label('Doc. Nombre')
+                    ->numeric()
+                    ->sortable()
+                    ->label('Docente'),
+                Tables\Columns\TextColumn::make('docente_materia.docente.apellido_doc')
+                    ->label('Doc. Apellido')
                     ->numeric()
                     ->sortable()
                     ->label('Docente'),
                 Tables\Columns\TextColumn::make('codigo_nrc')
+                    ->label('NRC')
                     ->searchable()
                     ->label('NRC'),
                 Tables\Columns\TextColumn::make('created_at')
