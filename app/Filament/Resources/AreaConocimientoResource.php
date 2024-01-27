@@ -35,6 +35,7 @@ class AreaConocimientoResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nombre_are')
+                    ->label('Área de Conocimiento')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

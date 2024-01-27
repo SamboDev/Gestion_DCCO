@@ -20,6 +20,10 @@ class Materia extends Model
     }
 
     public function area_conocimiento() : BelongsTo{
-        return $this->belongsTo(AreaConocimiento::class);
+        return $this->belongsTo(AreaConocimiento::class, 'id_are');
+    }
+    
+    public function docentes(){
+        return $this->belongsToMany(Docente::class, 'docente_materias', 'id_doc', 'id_mat');
     }
 }

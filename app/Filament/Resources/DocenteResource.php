@@ -56,6 +56,15 @@ class DocenteResource extends Resource
                     ->directory('form-attachments')
                     ->visibility('private')
                     ->label('Curriculum'),
+                Forms\Components\Section::make('Asignar Materias a Docente')
+                    ->columns(2)
+                    ->schema([
+                        Forms\Components\Select::make('materias')
+                            ->relationship('materias', 'nombre_mat')
+                            ->multiple()
+                            ->preload()
+                            ->columnSpanFull(),
+                    ]),
             ]);
     }
 
@@ -64,21 +73,30 @@ class DocenteResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nombre_doc')
+                    ->label('Nombre')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('apellido_doc')
+                    ->label('Apellido')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('cedula_doc')
+                    ->label('Cedula')
                     ->searchable(),
+
                 Tables\Columns\TextColumn::make('fecha_nac_doc')
+                    ->label('Fecha de Nacimiento')
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('direccion_doc')
+                    ->label('Dirección')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('correo_doc')
+                    ->label('Correo')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('telefono_doc')
+                    ->label('Teléfono')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('curriculum_url')
+                    ->label('Curriculum')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
