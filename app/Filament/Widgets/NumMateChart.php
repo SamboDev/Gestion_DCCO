@@ -8,6 +8,7 @@ use Filament\Widgets\ChartWidget;
 class NumMateChart extends ChartWidget
 {
     protected static ?string $heading = 'Número de Materias por Área de Conocimiento';
+    protected static ?int $sort = 6;
     protected function getData(): array
     {
 

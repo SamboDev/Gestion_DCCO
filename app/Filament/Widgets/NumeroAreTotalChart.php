@@ -8,6 +8,7 @@ use Filament\Widgets\ChartWidget;
 class NumeroAreTotalChart extends ChartWidget
 {
     protected static ?string $heading = 'Número de Materias por Área de Conocimiento';
+    protected static ?int $sort = 5;
 
     protected function getData(): array
     {

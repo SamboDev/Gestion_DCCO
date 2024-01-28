@@ -3,7 +3,7 @@
 return [
 
     'title' => 'Gestión DCCO',
-
+    
     'actions' => [
 
         'filter' => [

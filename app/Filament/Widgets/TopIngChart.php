@@ -7,7 +7,7 @@ use Filament\Widgets\ChartWidget;
 class TopIngChart extends ChartWidget
 {
     protected static ?string $heading = 'Top Ingenieros por Materia';
-
+    protected static ?int $sort = 4;
     protected function getData(): array
     {
         // Obtener todas las relaciones de DocenteMateria con Docente y Materia

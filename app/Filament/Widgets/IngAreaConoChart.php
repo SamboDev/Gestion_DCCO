@@ -8,6 +8,14 @@ use Filament\Widgets\ChartWidget;
 class IngAreaConoChart extends ChartWidget
 {
     protected static ?string $heading = 'Ingeniero por Área de Conocimiento';
+    protected static ?int $sort = 3;
+    public function getColumns(): int | string | array
+    {
+        return [
+            'md' => 1,
+            'xl' => 3,
+        ];
+    }
     protected function containerClass(): string
     {
         return 'ing-area-cono-chart-container';

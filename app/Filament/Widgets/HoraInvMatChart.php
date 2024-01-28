@@ -7,7 +7,7 @@ use Filament\Widgets\ChartWidget;
 class HoraInvMatChart extends ChartWidget
 {
     protected static ?string $heading = 'Horas de investigación Por Materia';
-
+    protected static ?int $sort = 2;
     protected function getData(): array
     {
         // Obtener todas las materias

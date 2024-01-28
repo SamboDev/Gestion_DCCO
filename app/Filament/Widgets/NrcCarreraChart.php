@@ -8,7 +8,7 @@ use Filament\Widgets\ChartWidget;
 class NrcCarreraChart extends ChartWidget
 {
     protected static ?string $heading = 'Nrc por Carrera';
-
+    protected static ?int $sort = 1;
     protected function getData(): array
     {
         // Obtener todas las carreras
