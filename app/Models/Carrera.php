@@ -11,6 +11,7 @@ class Carrera extends Model
     use HasFactory;
     protected $guarded = [];
     public function nrcs(): HasMany{
-        return $this->hasMany(NRC::class);
+        return $this->hasMany(NRC::class,'id_car');
     }
+  
 }
