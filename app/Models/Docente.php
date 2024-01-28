@@ -9,20 +9,28 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Docente extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
-    public function users(): HasMany{
+
+    public function users(): HasMany
+    {
         return $this->hasMany(User::class);
     }
 
-    public function docentes_materias(): HasMany{
-        return $this->hasMany(DocenteMateria::class);
+    // Relación con la tabla intermedia DocenteMateria
+    public function docentesMaterias(): HasMany
+    {
+        return $this->hasMany(DocenteMateria::class, 'id_doc');
     }
 
-    public function coordinadores(): HasMany{
+    public function coordinadores(): HasMany
+    {
         return $this->hasMany(Coordinador::class);
     }
 
-    public function materias(){
-        return $this->belongsToMany(Materia::class, 'docente_materias', 'id_doc', 'id_mat');
+    // Relación inversa con el gráfico TOP ING MATE
+    public function materias(): HasMany
+    {
+        return $this->hasMany(DocenteMateria::class, 'nombre_doc');
     }
 }

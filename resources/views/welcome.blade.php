@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>DCCO</title>
+    <title>Gestión - DCCO</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -205,7 +205,7 @@
 </head>
 
 <body class="antialiased">
-    <nav class="relative font-serif"
+    <nav class="relative font-verdana"
         style="height: 100vh; overflow: hidden; background: url('{{ asset('images/fondoEspe.jpeg') }}') no-repeat center center fixed; background-size: cover;">
         {{-- logo --}}
         <div class="absolute top-0 left-0 flex">
@@ -219,13 +219,13 @@
                 @else
                     {{-- LOGIN --}}
                     <div class="absolute p-5" style="position: fixed; top: 30px; right: 100px; pading: 2rem;">
-                        <a id="enlace1" class="no-underline" href="{{ route('login') }}"
-                            style="background-color: rgba(255, 255, 255, 0.5); width: 120px;">Ingresar </a>
+                        <a id="enlace1" class="no-underline" href="{{ url('admin/login') }}"
+                            style=" width: 120px;">Ingresar </a>
                     </div>
                     @if (Route::has('register'))
                         <div class="absolute p-5" style="position: fixed; top: 30px; right: 30px;">
-                            <a id="enlace2" class="no-underline" href="{{ route('register') }}"
-                                style="background-color: rgba(255, 255, 255, 0.5); width: 130px;">Registrar</a>
+                            <a id="enlace2" class="no-underline" href="{{ url('register') }}"
+                                style=" width: 130px;">Registrar</a>
                         </div>
                     @endif
                 @endauth
