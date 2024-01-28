@@ -38,7 +38,7 @@ class NrcResource extends Resource
                 Forms\Components\Select::make('id_dm')
                     ->required()
                     ->options(DocenteMateria::with('docente', 'materias')->get()->mapWithKeys(function ($item) {
-                        return [$item->id => $item->docente->nombre_doc . ' ' . $item->docente->apellido_doc  . ' - ' . $item->materias->nombre_mat];
+                        return [$item->id => $item->docente->nombre_doc . ' ' . $item->docente->apellido_doc  . ' - ' . $item->materia->nombre_mat];
                     }))
                     ->searchable()
                     ->label('Docente - Materia'),

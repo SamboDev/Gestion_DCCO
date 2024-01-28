@@ -52,7 +52,7 @@ class DocenteMateriaResource extends Resource
                     ->label('Doc. Apellido')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('materias.nombre_mat')
+                Tables\Columns\TextColumn::make('materia.nombre_mat')
                     ->label('Materia')
                     ->numeric()
                     ->sortable(),

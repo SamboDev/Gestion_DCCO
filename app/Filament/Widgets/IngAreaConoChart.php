@@ -24,7 +24,7 @@ class IngAreaConoChart extends ChartWidget
     protected function titleClass(): string
     {
         return 'ing-area-cono-chart-title';
-    }
+    } 
 
 protected function getData(): array
 {
