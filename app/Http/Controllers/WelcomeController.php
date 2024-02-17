@@ -20,3 +20,4 @@ class WelcomeController extends Controller
         return view('welcome', ['area' => $area, 'materia' => $materia, 'docente' => $docente, 'carrera' => $carrera]);
     }
 }
+ 
