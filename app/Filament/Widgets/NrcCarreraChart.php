@@ -3,26 +3,43 @@
 namespace App\Filament\Widgets;
 
 use App\Models\Carrera;
-use App\Models\Nrc;
 use Filament\Widgets\ChartWidget;
 
 class NrcCarreraChart extends ChartWidget
 {
-    protected static ?string $heading = 'Chart';
-
+    protected static ?string $heading = 'Nrc por Carrera';
+    protected static ?int $sort = 1;
     protected function getData(): array
     {
-        return [
+        // Obtener todas las carreras
+        $carreras = Carrera::all();
+
+        // Inicializar el array de datos
+        $data = [
             'datasets' => [
                 [
                     'label' => 'NRC por Carrera',
-                    'data' => [0, 10, 5, 2, 21, 32, 45, 74, 65, 45, 77, 89],
                     'backgroundColor' => '#36A2EB',
                     'borderColor' => '#9BD0F5',
+                    'data' => [],
                 ],
             ],
-            'labels' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            'labels' => [],
         ];
+
+        // Iterar sobre las carreras
+        foreach ($carreras as $carrera) {
+            // Contar la cantidad de NRCs relacionados con esta carrera
+            $nrcCount = $carrera->nrcs()->count();  // <-- Utiliza la relación nrcs de la carrera
+
+            // Agregar el conteo al array de datos
+            $data['datasets'][0]['data'][] = $nrcCount;
+
+            // Agregar el nombre de la carrera a las etiquetas
+            $data['labels'][] = $carrera->nombre_car;
+        }
+
+        return $data;
     }
 
     protected function getType(): string

@@ -25,4 +25,15 @@ class Docente extends Model
     public function materias(){
         return $this->belongsToMany(Materia::class, 'docente_materias', 'id_doc', 'id_mat');
     }
+    // Relación con la tabla intermedia DocenteMateria
+    public function docentesMaterias(): HasMany
+    {
+        return $this->hasMany(DocenteMateria::class, 'id_doc');
+    }
+    // Relación inversa con el gráfico TOP ING MATE
+    public function materia(): HasMany
+    {
+        return $this->hasMany(DocenteMateria::class, 'nombre_doc');
+    }
+
 }

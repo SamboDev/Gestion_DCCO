@@ -25,4 +25,15 @@ class Nrc extends Model
     public function docente_materia() : BelongsTo{
         return $this->belongsTo(DocenteMateria::class, 'id_dm');
     }
+    //Grafica IngAreConoChart
+    public function docente_materias()
+    {
+        return $this->hasMany(DocenteMateria::class, 'id');
+    }
+    //GRAFICA NRC POR AREA
+    public function area(): BelongsTo
+    {
+        return $this->belongsTo(AreaConocimiento::class, 'id');
+    }
+
 }
