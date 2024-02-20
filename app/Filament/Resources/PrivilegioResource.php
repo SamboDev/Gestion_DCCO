@@ -17,7 +17,9 @@ class PrivilegioResource extends Resource
 {
     protected static ?string $model = Privilegio::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-m-globe-alt';
+
+    protected static ?string $navigationGroup = 'Usuario';
 
     public static function form(Form $form): Form
     {

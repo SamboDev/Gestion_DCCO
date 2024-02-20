@@ -19,7 +19,9 @@ class CoordinadorResource extends Resource
 {
     protected static ?string $model = Coordinador::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-m-identification';
+
+    protected static ?string $navigationGroup = 'Personal';
 
     public static function form(Form $form): Form
     {

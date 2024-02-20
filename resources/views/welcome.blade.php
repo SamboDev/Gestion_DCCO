@@ -214,17 +214,17 @@
         @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                 @auth
-                    <a href="{{ url('/admin') }}"
+                    <a href="{{ url('/dashboard') }}"
                         class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="background-color: rgba(255, 255, 255, 0.5); width: 120px; font-size:30px;  border-radius: 4px; color:#065F46;">Dashboard</a>
                 @else
                     {{-- LOGIN --}}
                     <div class="absolute p-5" style="position: fixed; top: 30px; right: 100px; pading: 2rem;">
-                        <a id="enlace1" class="no-underline" href="{{ url('admin/login') }}"
+                        <a id="enlace1" class="no-underline" href="{{ url('dashboard/login') }}"
                             style=" width: 120px;">Ingresar </a>
                     </div>
                     @if (Route::has('register'))
                         <div class="absolute p-5" style="position: fixed; top: 30px; right: 30px;">
-                            <a id="enlace2" class="no-underline" href="{{ url('register') }}"
+                            <a id="enlace2" class="no-underline" href="{{ url('dashboard/register') }}"
                                 style=" width: 130px;">Registrar</a>
                         </div>
                     @endif
