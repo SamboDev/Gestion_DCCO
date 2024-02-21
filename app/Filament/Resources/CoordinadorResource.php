@@ -19,7 +19,9 @@ class CoordinadorResource extends Resource
 {
     protected static ?string $model = Coordinador::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-m-identification';
+
+    protected static ?string $navigationGroup = 'Personal';
 
     public static function form(Form $form): Form
     {
@@ -27,7 +29,9 @@ class CoordinadorResource extends Resource
             ->schema([
                 Forms\Components\Select::make('id_doc')
                     ->required()
-                    ->options(Docente::all()->pluck('nombre_doc', 'id')->pluck('apellido_doc', 'id'))
+                    ->options(Docente::all()->mapWithKeys(function ($docente) {
+                        return [$docente->id => $docente->nombre_doc . ' ' . $docente->apellido_doc];
+                    }))                    
                     ->searchable()
                     ->label('Docente'),
                 Forms\Components\Select::make('id_are')
@@ -42,10 +46,16 @@ class CoordinadorResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id_doc')
+                Tables\Columns\TextColumn::make('docente.nombre_doc')
+                    ->label('Doc. Nombre')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('id_are')
+                Tables\Columns\TextColumn::make('docente.apellido_doc')
+                    ->label('Doc. Apellido')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('area_conocimiento.nombre_are')
+                    ->label('Area Conocimiento')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

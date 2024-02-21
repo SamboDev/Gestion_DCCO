@@ -18,7 +18,9 @@ class MateriaResource extends Resource
 {
     protected static ?string $model = Materia::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-s-calculator';
+
+    protected static ?string $navigationGroup = 'Academico';
 
     public static function form(Form $form): Form
     {
@@ -70,23 +72,30 @@ class MateriaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id_are')
+                Tables\Columns\TextColumn::make('area_conocimiento.nombre_are')
+                    ->label('Área de Conocimiento')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('codigo_mat')
+                    ->label('Código')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('nombre_mat')
+                    ->label('Materia')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('horas_trabAuto_mat')
+                    ->label('H. Trabajo Autónomo')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('horas_doc_mat')
+                    ->label('H. Docente')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('horas_invest_mat')
+                    ->label('H. Investigación')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('horas_total')
+                    ->label('H. Totales')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

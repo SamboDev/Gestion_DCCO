@@ -17,7 +17,9 @@ class PrivilegioResource extends Resource
 {
     protected static ?string $model = Privilegio::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-m-globe-alt';
+
+    protected static ?string $navigationGroup = 'Usuario';
 
     public static function form(Form $form): Form
     {
@@ -35,6 +37,7 @@ class PrivilegioResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nombre_priv')
+                    ->label('Privilegio')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

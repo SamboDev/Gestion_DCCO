@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_priv')->nullable()->constrained('privilegios')->cascadeOnDelete();
-            $table->foreignId('id_doc')->nullable()->constrained('docentes')->cascadeOnDelete();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

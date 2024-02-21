@@ -17,7 +17,9 @@ class SemestreResource extends Resource
 {
     protected static ?string $model = Semestre::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-c-calendar-days';
+
+    protected static ?string $navigationGroup = 'Academico';
 
     public static function form(Form $form): Form
     {
@@ -41,11 +43,14 @@ class SemestreResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nombre_sem')
+                    ->label('Semestre')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('fecha_ini_sem')
+                    ->label('Fecha Inicio')
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('fecha_fin_sem')
+                    ->label('Fecha Fin')
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

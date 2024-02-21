@@ -214,17 +214,17 @@
         @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                 @auth
-                    <a href="{{ url('/admin') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="background-color: rgba(255, 255, 255, 0.5); width: 120px; font-size:30px;  border-radius: 4px; color:#065F46;">Dashboard</a>
+                    <a href="{{ url('/dashboard') }}"
+                        class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500" style="background-color: rgba(255, 255, 255, 0.5); width: 120px; font-size:30px;  border-radius: 4px; color:#065F46;">Dashboard</a>
                 @else
                     {{-- LOGIN --}}
                     <div class="absolute p-5" style="position: fixed; top: 30px; right: 100px; pading: 2rem;">
-                        <a id="enlace1" class="no-underline" href="{{ url('admin/login') }}"
+                        <a id="enlace1" class="no-underline" href="{{ url('dashboard/login') }}"
                             style=" width: 120px;">Ingresar </a>
                     </div>
                     @if (Route::has('register'))
                         <div class="absolute p-5" style="position: fixed; top: 30px; right: 30px;">
-                            <a id="enlace2" class="no-underline" href="{{ url('register') }}"
+                            <a id="enlace2" class="no-underline" href="{{ url('dashboard/register') }}"
                                 style=" width: 130px;">Registrar</a>
                         </div>
                     @endif
@@ -251,10 +251,9 @@
                             <div class="swiper-description">
                                 <h1 class="text-center text-xl font-bold">Áreas de Conocimiento</h1>
                                 <div class="text-sm">
-                                    <li>Investigación Operaciones</li>
-                                    <li>Control de procesos</li>
-                                    <li>Ciencia de la Computación</li>
-                                    <li>TIC's</li>
+                                    @foreach($area as $area)
+                                    <li>{{ $area -> nombre_are}}</li>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -264,10 +263,9 @@
                             <div class="swiper-description">
                                 <h1 class="text-center text-xl font-bold">Materias</h1>
                                 <div class="text-sm">
-                                    <li>Desarrollo Web</li>
-                                    <li>Base de datos</li>
-                                    <li>Estructura de datos</li>
-                                    <li>Metodología-Investigación</li>
+                                    @foreach($materia as $materia)
+                                    <li>{{ $materia -> nombre_mat}}</li>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -277,10 +275,9 @@
                             <div class="swiper-description">
                                 <h1 class="text-center text-xl font-bold">Profesores</h1>
                                 <div class="text-sm">
-                                    <li>Ing. Fabian Montaluisa</li>
-                                    <li>Ing. Alexandra Corral</li>
-                                    <li>Ing. Ruben López</li>
-                                    <li>Ing. Santiago Jácome</li>
+                                    @foreach($docente as $docente)
+                                    <li>{{ $docente -> nombre_doc}} {{ $docente -> apellido_doc}}</li>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -288,12 +285,11 @@
                             <img class="image-slide" src="{{ asset('images/carrera.png') }}" alt="#">
                             <div class="swiper-overlay"></div>
                             <div class="swiper-description">
-                                <h1 class="text-center text-xl font-bold">Titulos</h1>
+                                <h1 class="text-center text-xl font-bold">Carreras</h1>
                                 <div class="text-sm">
-                                    <li>Ingeniero en Sistemas</li>
-                                    <li>Ingeniero de Software</li>
-                                    <li>Ingeniero en Informatica</li>
-                                    <li>Doctorado en Seguridad Informatica</li>
+                                    @foreach($carrera as $carrera)
+                                    <li>{{ $carrera -> nombre_car}}</li>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

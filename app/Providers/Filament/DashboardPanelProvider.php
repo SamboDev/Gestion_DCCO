@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Models\User;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -29,17 +30,32 @@ class DashboardPanelProvider extends PanelProvider
 
             ->default()
             ->id('admin')
-            ->profile()
-            ->path('admin')
+            ->path('dashboard')
             ->login()
+            ->registration()
+            ->font('Inconsolata')
+            ->brandName('DCCO')
+            ->brandLogo(asset('images/dcco1.png'))
+            ->brandLogoHeight('4rem')
+            ->favicon(asset('images/dcco1.png'))
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => '#0088C3',
+                'secondary' => '#608696',
+                'tertiary' => '#49BAEB',
+                'danger' => '#353D41',
+                'gray' => '#0088C3',
+                'info' => '#353D41',
+                'success' => '#353D41',
+                'warning' => '#353D41',
             ])
-            ->discoverResources(app_path('Filament/Resources'), 'App\\Filament\\Resources')
-            ->discoverPages(app_path('Filament/Pages'), 'App\\Filament\\Pages')
+            //->topNavigation()
+            ->profile()
+            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
+            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
                 Pages\Dashboard::class,
             ])
+            ->unsavedChangesAlerts()
             ->discoverWidgets(app_path('Filament/Widgets'), 'App\\Filament\\Widgets')
             ->widgets([
                 //Widgets\AccountWidget::class,

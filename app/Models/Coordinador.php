@@ -11,10 +11,10 @@ class Coordinador extends Model
     use HasFactory;
     protected $guarded = [];
     public function docente() : BelongsTo{
-        return $this->belongsTo(Docente::class);
+        return $this->belongsTo(Docente::class, 'id_doc');
     }
 
     public function area_conocimiento() : BelongsTo{
-        return $this->belongsTo(AreaConocimiento::class);
+        return $this->belongsTo(AreaConocimiento::class, 'id_are');
     }
 }
