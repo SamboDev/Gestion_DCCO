@@ -17,7 +17,9 @@ class AreaConocimientoResource extends Resource
 {
     protected static ?string $model = AreaConocimiento::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-c-academic-cap';
+
+    protected static ?string $navigationGroup = 'Academico';
 
     public static function form(Form $form): Form
     {
