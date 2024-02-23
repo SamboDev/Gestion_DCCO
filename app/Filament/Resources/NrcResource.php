@@ -11,7 +11,9 @@ use App\Models\DocenteMateria;
 use App\Models\Materia;
 use App\Models\Nrc;
 use App\Models\Semestre;
+use Closure;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -37,18 +39,27 @@ class NrcResource extends Resource
                     ->options(Carrera::all()->pluck('nombre_car', 'id'))
                     ->searchable()
                     ->label('Carrera'),
-                Forms\Components\Select::make('id_dm')
-                    ->required()
-                    ->options(DocenteMateria::with('docente', 'materias')->get()->mapWithKeys(function ($item) {
-                        return [$item->id => $item->docente->nombre_doc . ' ' . $item->docente->apellido_doc  . ' - ' . $item->materia->nombre_mat];
-                    }))
-                    ->searchable()
-                    ->label('Docente - Materia'),
                 Forms\Components\Select::make('id_mat')
                     ->required()
                     ->options(Materia::all()->pluck('nombre_mat', 'id'))
                     ->searchable()
                     ->label('Materia'),
+                Forms\Components\Select::make('id_dm')
+                    ->required()
+                    ->options(function (callable $get) {
+                        $materiaId = $get('id_mat');
+                    
+                        return DocenteMateria::where('id_mat', $materiaId)
+                            ->with('docente')
+                            ->get()
+                            ->mapWithKeys(function ($docenteMateria) {
+                                return [
+                                    $docenteMateria->id => $docenteMateria->docente->nombre_doc . ' ' . $docenteMateria->docente->apellido_doc,
+                                ];
+                            });
+                    })
+                    ->searchable()
+                    ->label('Docente - Materia'),
                 Forms\Components\Select::make('id_sem')
                     ->required()
                     ->options(Semestre::all()->pluck('nombre_sem', 'id'))
@@ -58,6 +69,8 @@ class NrcResource extends Resource
                     ->required()
                     ->maxLength(10)
                     ->label('NRC'),
+                Forms\Components\Section::make('Información de Ayuda')
+                    ->description('Prevent abuse by limiting the number of requests per period')
             ]);
     }
 
