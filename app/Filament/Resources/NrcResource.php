@@ -44,17 +44,41 @@ class NrcResource extends Resource
                     ->options(Materia::all()->pluck('nombre_mat', 'id'))
                     ->searchable()
                     ->label('Materia'),
-                Forms\Components\Select::make('id_dm')
+                /*Forms\Components\Select::make('id_dm')
                     ->required()
                     ->options(function (callable $get) {
                         $materiaId = $get('id_mat');
-                    
+
                         return DocenteMateria::where('id_mat', $materiaId)
                             ->with('docente')
                             ->get()
                             ->mapWithKeys(function ($docenteMateria) {
                                 return [
                                     $docenteMateria->id => $docenteMateria->docente->nombre_doc . ' ' . $docenteMateria->docente->apellido_doc,
+                                ];
+                            });
+                    })
+                    ->searchable()
+                    ->label('Docente - Materia'),*/
+                Forms\Components\Select::make('id_dm')
+                    ->required()
+                    ->options(function (callable $get) {
+                        $materiaId = $get('id_mat');
+
+                        return DocenteMateria::where('id_mat', $materiaId)
+                            ->with('docente')
+                            ->get()
+                            ->mapWithKeys(function ($docenteMateria) {
+                                $nrcs = Nrc::where('id_dm', $docenteMateria->id)->get();
+
+                                $cargaHorariaTotal = 0;
+
+                                foreach ($nrcs as $nrc) {
+                                    $cargaHorariaTotal += $nrc->materia->horas_doc_mat;
+                                }
+
+                                return [
+                                    $docenteMateria->id => $docenteMateria->docente->nombre_doc . ' ' . $docenteMateria->docente->apellido_doc . ' (' . $cargaHorariaTotal . ' hrs)',
                                 ];
                             });
                     })
@@ -68,9 +92,7 @@ class NrcResource extends Resource
                 Forms\Components\TextInput::make('codigo_nrc')
                     ->required()
                     ->maxLength(10)
-                    ->label('NRC'),
-                Forms\Components\Section::make('Información de Ayuda')
-                    ->description('Prevent abuse by limiting the number of requests per period')
+                    ->label('NRC')
             ]);
     }
 
