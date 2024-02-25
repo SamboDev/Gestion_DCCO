@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PDFController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,7 @@ Route::get('/', function () {
 });
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'mostrarDatos'])->name('welcome');
 
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -27,3 +29,6 @@ Route::middleware([
     //    return view('dashboard');
     //})->name('dashboard');
 });
+
+Route::get('download/{model}/{view_name}',[PDFController::class, 'downloadpdf'])->name('download.tes');
+
