@@ -36,4 +36,5 @@ class Nrc extends Model
         return $this->belongsTo(AreaConocimiento::class, 'id');
     }
 
+    
 }

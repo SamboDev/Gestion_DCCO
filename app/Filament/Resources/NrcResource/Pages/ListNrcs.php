@@ -6,6 +6,7 @@ use App\Filament\Resources\NrcResource;
 use App\Filament\Resources\NrcResource\Widgets\NrcCarrera;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Widgets\Widget;
 
 class ListNrcs extends ListRecords
 {
@@ -21,7 +22,7 @@ class ListNrcs extends ListRecords
     protected function getHeaderWidgets(): array
     {
         return [
-            //
+            
         ];
     }
 }
