@@ -206,7 +206,7 @@
 
 <body class="antialiased">
     <nav class="relative font-verdana"
-        style="height: 100vh; overflow: hidden; background: url('{{ asset('images/fondoEspe.jpeg') }}') no-repeat center center fixed; background-size: cover;">
+        style="height: 100vh; overflow: hidden; background: url('{{ asset('images/EspeS.jpg') }}') no-repeat center center fixed; background-size: cover;">
         {{-- logo --}}
         <div class="absolute top-0 left-0 flex">
             <img class="w-2/3 h-2/3 ml-7 p-3 object-cover " src="{{ asset('images/dcco1.png') }}" alt="#">
